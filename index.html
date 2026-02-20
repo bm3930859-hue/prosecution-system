@@ -33,7 +33,10 @@
 
             <span class="side-link active" onclick="showPage('dashboard', this)">الرئيسية</span>
             <span class="side-link" onclick="showPage('cases', this)">القضايا</span>
-            <span class="side-link" onclick="showPage('articles', this)">البنود</span>
+
+            <!-- 🔥 تم تغيير البنود إلى صفحة مستقلة -->
+            <a class="side-link" href="laws.html">البنود</a>
+
             <span class="side-link" onclick="showPage('summons', this)">الاستدعاءات</span>
             <span class="side-link" onclick="showPage('decisions', this)">القرارات</span>
             <span class="side-link" onclick="showPage('users', this)">المستخدمين</span>
@@ -124,138 +127,41 @@
                 </div>
             </div>
 
-            <!-- صفحة البنود -->
+            <!-- صفحة البنود القديمة (رجعت كما هي) -->
             <div id="articles" class="page">
                 <h2 class="section-title">البنود القانونية</h2>
                 <p class="muted">هنا يمكن إضافة البنود القانونية وربطها بالقضايا لاحقاً (جاهزة للتطوير).</p>
             </div>
 
-            <!-- صفحة الاستدعاءات -->
+            <!-- باقي الصفحات كما هي -->
             <div id="summons" class="page">
                 <h2 class="section-title">الاستدعاءات</h2>
                 <p class="muted">نظام الاستدعاءات يمكن ربطه بالقضايا لاحقاً (جاهز للتطوير).</p>
             </div>
 
-            <!-- صفحة القرارات -->
             <div id="decisions" class="page">
                 <h2 class="section-title">القرارات</h2>
                 <p class="muted">نظام القرارات القضائية يمكن تطويره وربطه بالقضايا (جاهز للتطوير).</p>
             </div>
 
-            <!-- صفحة المستخدمين -->
             <div id="users" class="page">
                 <h2 class="section-title">المستخدمين</h2>
                 <p class="muted">إدارة حسابات المستخدمين وصلاحياتهم.</p>
-
-                <div class="form-box" style="margin-top:15px;">
-                    <h3>إضافة مستخدم جديد</h3>
-
-                    <label>اسم المستخدم</label>
-                    <input id="userName">
-
-                    <label>البريد الإلكتروني</label>
-                    <input id="userEmail">
-
-                    <label>الصلاحية</label>
-                    <select id="userRole">
-                        <option value="admin">مدير</option>
-                        <option value="staff">موظف</option>
-                        <option value="viewer">مشاهد</option>
-                    </select>
-
-                    <div class="form-actions">
-                        <button class="btn" onclick="addUser()">حفظ</button>
-                    </div>
-                </div>
-
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>اسم المستخدم</th>
-                                <th>البريد</th>
-                                <th>الصلاحية</th>
-                                <th>إجراءات</th>
-                            </tr>
-                        </thead>
-                        <tbody id="usersTable"></tbody>
-                    </table>
-                </div>
             </div>
 
-            <!-- صفحة التقارير -->
             <div id="reports" class="page">
                 <h2 class="section-title">التقارير</h2>
                 <p class="muted">إنشاء تقارير حول القضايا، الاستدعاءات، القرارات، والمستخدمين.</p>
-
-                <div class="form-box" style="margin-top:15px;">
-                    <h3>إنشاء تقرير</h3>
-
-                    <label>نوع التقرير</label>
-                    <select id="reportType">
-                        <option value="cases">تقرير القضايا</option>
-                        <option value="summons">تقرير الاستدعاءات</option>
-                        <option value="decisions">تقرير القرارات</option>
-                        <option value="users">تقرير المستخدمين</option>
-                    </select>
-
-                    <div class="form-actions">
-                        <button class="btn" onclick="generateReport()">إنشاء</button>
-                    </div>
-                </div>
-
-                <div class="table-wrapper" style="margin-top:20px;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>العنصر</th>
-                                <th>البيانات</th>
-                            </tr>
-                        </thead>
-                        <tbody id="reportOutput"></tbody>
-                    </table>
-                </div>
             </div>
 
-            <!-- صفحة السجلات -->
             <div id="logs" class="page">
                 <h2 class="section-title">سجل النظام</h2>
                 <p class="muted">عرض جميع العمليات التي تمت داخل النظام.</p>
-
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>العملية</th>
-                                <th>التاريخ</th>
-                            </tr>
-                        </thead>
-                        <tbody id="logsTable"></tbody>
-                    </table>
-                </div>
             </div>
 
-            <!-- صفحة الإعدادات -->
             <div id="settings" class="page">
                 <h2 class="section-title">الإعدادات</h2>
                 <p class="muted">إعدادات النظام العامة.</p>
-
-                <div class="form-box" style="margin-top:15px;">
-                    <h3>إعدادات النظام</h3>
-
-                    <label>اسم النظام</label>
-                    <input id="systemName" value="نظام النيابة العامة">
-
-                    <label>اللغة</label>
-                    <select id="systemLang">
-                        <option value="ar">العربية</option>
-                        <option value="en">English</option>
-                    </select>
-
-                    <div class="form-actions">
-                        <button class="btn" onclick="saveSettings()">حفظ الإعدادات</button>
-                    </div>
-                </div>
             </div>
 
         </div>
